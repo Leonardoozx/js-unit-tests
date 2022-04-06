@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 
+const { TestScheduler } = require('jest');
+const average = require('../src/average');
 const circle = require('../src/circle');
 
 /*
@@ -25,14 +27,38 @@ const circle = require('../src/circle');
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste se circle retorna undefined, caso o parâmetro passado não seja um número.
-    // Teste se circle retorna um objeto.
-    // Teste se o objeto retornado tem 3 propriedades.
-    // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
-    // Teste se dentro do objeto retornado, a função retorna uma key com value igual a circunferência correta para um círculo de raio 2.
-    // Teste se dentro do objeto retornado, a função retorna uma key com value igual a área correta para um círculo de raio 3.
-    // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
+    // fail('Teste vazio!');
+    expect(circle(7)).toEqual({ radius: 7, area: 153.86, circumference: 43.96 });
+  });
+
+  // ESCREVA SEUS TESTES ABAIXO:
+  it('Teste se circle retorna undefined, caso o parâmetro passado não seja um número.', () => {
+    expect(average(['um', 2, 'três'])).toBeUndefined();
+  });
+
+  // Referência do average instance of Object: https://github.com/facebook/jest/issues/3457
+  // Estava colocando expect(average).instanceOf(Object), por isso estava dando errado o meu teste, fui pesquisar um pouco pra ver melhor como que funcionava o instanceOf, e achei essa variação no github;
+  it('Teste se circle retorna um objeto.', () => {
+    expect(average instanceof Object).toBe(true);
+  });
+
+  it('Teste se o objeto retornado tem 3 propriedades.', () => {
+    expect(circle(7)).toMatchObject(/radius|area|circumference/);
+  });
+
+  it('Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.', () => {
+    expect(circle('')).toBeUndefined();
+  });
+
+  it('Teste se dentro do objeto retornado, a função retorna uma key com value igual a circunferência correta para um círculo de raio 2.', () => {
+    expect(circle(2)).toHaveProperty('circumference', 12.56);
+  });
+
+  it('Teste se dentro do objeto retornado, a função retorna uma key com value igual a área correta para um círculo de raio 3.', () => {
+    expect(circle(3)).toHaveProperty('area', 28.259999999999998);
+  });
+
+  it('Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.', () => {
+    expect(circle(3)).toEqual({ radius: 3, area: 28.259999999999998, circumference: 18.84 });
   });
 });
