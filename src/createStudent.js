@@ -15,6 +15,8 @@
     estudante.feedback() // Retorna: 'Eita pessoa boa!'
 */
 
+// Funcionou, mas não entendi como, nos meus consoles logs tenho um resultado estranho...
+
 const goodPerson = 'Eita pessoa boa!';
 
 const createStudent = (nome) => {
