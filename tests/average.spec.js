@@ -35,7 +35,6 @@ describe('1 - Implemente a função `average`', () => {
     expect(average([1, 2, '3'])).toBeUndefined();
     expect(average([' '])).toBeUndefined();
   });
-
   it('Verifica se ao receber um array vazio a função `average` retorna `undefined`', () => {
     expect(average([])).toBeUndefined();
   });
