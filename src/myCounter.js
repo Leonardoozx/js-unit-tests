@@ -26,7 +26,6 @@ const myCounter = () => {
     }
   return myArray;
 };
-// console.log(myCounter());
 // Só mudei os var para 'const' e 'let', e mudei o counter do segundo for de 'counter' para 'counter1'; 
 
 module.exports = myCounter;
